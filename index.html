@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MOTRIX - Tecnología para tu Moto</title>
+    <!-- Importación de Google Fonts -->
+    <link href="[suspicious link removed]" rel="stylesheet">
+    
+    <style>
+        /* --- PALETA DE COLORES Y ESTILOS BASE --- */
+        :root {
+            --primary-color: #ff6b00; /* Naranja Energético Moto */
+            --dark-color: #121417;    /* Negro Carbón Mate */
+            --light-color: #f8f9fa;   /* Gris Claro Fondo */
+            --text-color: #2b2d42;    /* Texto Principal */
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            color: var(--text-color);
+            background-color: var(--white);
+            line-height: 1.6;
+        }
+
+        /* --- NAVEGACIÓN --- */
+        header {
+            background-color: var(--dark-color);
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .logo {
+            color: var(--white);
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+
+        .logo span {
+            color: var(--primary-color);
+        }
+
+        .btn-nav {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 0.6rem 1.4rem;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn-nav:hover {
+            background-color: #e05d00;
+            box-shadow: 0 4px 12px rgba(255, 107, 0, 0.4);
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            background: linear-gradient(135deg, var(--dark-color) 60%, #1f242d 100%);
+            color: var(--white);
+            padding: 5rem 5%;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            min-height: 85vh;
+        }
+
+        .hero-text {
+            flex: 1 1 500px;
+            padding-right: 2rem;
+        }
+
+        .hero-text h1 {
+            font-size: 3rem;
+            line-height: 1.2;
+            margin-bottom: 1.2rem;
+            font-weight: 700;
+        }
+
+        .hero-text h1 span {
+            color: var(--primary-color);
+        }
+
+        .hero-text p {
+            font-size: 1.2rem;
+            color: #d1d5db;
+            margin-bottom: 2.5rem;
+            font-weight: 300;
+        }
+
+        .btn-main {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 1rem 2.2rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 30px;
+            box-shadow: 0 4px 15px rgba(255, 107, 0, 0.4);
+            transition: transform 0.2s, background-color 0.3s;
+        }
+
+        .btn-main:hover {
+            transform: translateY(-3px);
+            background-color: #e05d00;
+        }
+
+        .hero-image {
+            flex: 1 1 400px;
+            display: flex;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        .hero-image img {
+            width: 100%;
+            max-width: 480px;
+            height: 320px;
+            object-fit: cover;
+            border-radius: 15px;
+            border: 2px solid var(--primary-color);
+            box-shadow: 0 10px 25px rgba(255, 107, 0, 0.2);
+        }
+
+        /* --- BENEFICIOS --- */
+        .benefits {
+            padding: 5rem 5%;
+            background-color: var(--light-color);
+            text-align: center;
+        }
+
+        .benefits h2 {
+            font-size: 2.4rem;
+            margin-bottom: 3rem;
+            color: var(--dark-color);
+            font-weight: 700;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .benefit-card {
+            background: var(--white);
+            padding: 2.5rem 1.8rem;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .benefit-icon {
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .benefit-card h3 {
+            margin-bottom: 0.8rem;
+            color: var(--dark-color);
+            font-weight: 600;
+        }
+
+        /* --- SOBRE NOSOTROS --- */
+        .about {
+            padding: 5rem 5%;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 3rem;
+        }
+
+        .about-image {
+            flex: 1 1 400px;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 320px;
+            object-fit: cover;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+
+        .about-text {
+            flex: 1 1 450px;
+        }
+
+        .about-text h2 {
+            font-size: 2.4rem;
+            margin-bottom: 1.5rem;
+            color: var(--dark-color);
+            font-weight: 700;
+        }
+
+        .about-text p {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            color: #555;
+        }
+
+        /* --- FORMULARIO DE CONTACTO --- */
+        .contact-section {
+            padding: 5rem 5%;
+            background-color: var(--dark-color);
+            color: var(--white);
+            display: flex;
+            flex-wrap: wrap;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .contact-info {
+            flex: 1 1 400px;
+        }
+
+        .contact-info h2 {
+            font-size: 2.4rem;
+            margin-bottom: 1rem;
+            color: var(--white);
+        }
+
+        .contact-info h2 span {
+            color: var(--primary-color);
+        }
+
+        .contact-info p {
+            color: #cccccc;
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .contact-form {
+            flex: 1 1 450px;
+            background: #1e2228;
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #e5e7eb;
+            font-size: 0.95rem;
+        }
+
+        .form-group input, 
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            border: 1px solid #374151;
+            background-color: #121417;
+            color: var(--white);
+            border-radius: 8px;
+            font-size: 1rem;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus, 
+        .form-group textarea:focus {
+            border-color: var(--primary-color);
+        }
+
+        .btn-submit {
+            width: 100%;
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 1rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .btn-submit:hover {
+            background-color: #e05d00;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: #0b0c0e;
+            color: #888888;
+            text-align: center;
+            padding: 1.8rem;
+            font-size: 0.9rem;
+        }
+
+        /* RESPONSIVO */
+        @media (max-width: 768px) {
+            .hero-text h1 {
+                font-size: 2.2rem;
+            }
+            .contact-form {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVEGACIÓN -->
+    <header>
+        <div class="logo">MOTRIX <span>MOTO</span></div>
+        <a href="#contacto" class="btn-nav">Reservar Ahora</a>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="hero-text">
+            <h1>Energía y Seguridad para tu <span>Moto</span> con Motrix</h1>
+            <p>El primer equipamiento inteligente para moto con sistema de energía integrada. Carga tu celular o GPS en la ruta sin cables sueltos ni distracciones.</p>
+            <a href="#contacto" class="btn-main">Pedir Para Mi Moto</a>
+        </div>
+        <div class="hero-image">
+            <img src="moto.jpg" alt="Imagen Moto Motrix">
+        </div>
+    </section>
+
+    <!-- SECCIÓN DE BENEFICIOS -->
+    <section class="benefits">
+        <h2>¿Por qué equipar tu Moto con Motrix S.A.S.?</h2>
+        <div class="benefits-grid">
+            <div class="benefit-card">
+                <div class="benefit-icon">🏍️</div>
+                <h3>Energía en Ruta</h3>
+                <p>Batería de litio recargable integrada con puertos USB protegidos contra lluvia para tus trayectos en moto.</p>
+            </div>
+            <div class="benefit-card">
+                <div class="benefit-icon">🛡️</div>
+                <h3>Seguridad Vial</h3>
+                <p>Protección de alta resistencia a impactos con certificación de seguridad para motociclistas.</p>
+            </div>
+            <div class="benefit-card">
+                <div class="benefit-icon">⚡</div>
+                <h3>Cero Cables Sueltos</h3>
+                <p>Conexión limpia que elimina el peligro de llevar cables enredados mientras manejas tu moto.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SOBRE NOSOTROS -->
+    <section class="about">
+        <div class="about-image">
+            <img src="moto.jpg" alt="Motocicleta en Ciudad">
+        </div>
+        <div class="about-text">
+            <h2>Pasión por la Moto y la Tecnología</h2>
+            <p>En <strong>Motrix S.A.S.</strong> transformamos la movilidad sobre dos ruedas. Diseñamos e innovamos en tecnología para la moto, uniendo energía, confort y seguridad.</p>
+            <p>Nuestra misión es garantizar que los apasionados por la moto, repartidores y viajeros nunca se queden desconectados en sus trayectos.</p>
+        </div>
+    </section>
+
+    <!-- FORMULARIO DE CONTACTO -->
+    <section class="contact-section" id="contacto">
+        <div class="contact-info">
+            <h2>Rueda siempre equipado con <span>Motrix Moto</span></h2>
+            <p>Déjanos tus datos para recibir más información sobre disponibilidad, precios de preventa y lanzamientos.</p>
+            <p>📍 <strong>Sede:</strong> Bogotá, Colombia</p>
+            <p>📧 <strong>Contacto:</strong> info@motrixcascos.com</p>
+        </div>
+
+        <div class="contact-form">
+            <form action="#" method="POST" onsubmit="alert('¡Gracias por comunicarte con Motrix S.A.S.! Pronto te contactaremos.'); return false;">
+                <div class="form-group">
+                    <label for="nombre">Nombre Completo</label>
+                    <input type="text" id="nombre" placeholder="Ej. Juan Pérez" required>
+                </div>
+                <div class="form-group">
+                    <label for="telefono">Teléfono / WhatsApp</label>
+                    <input type="tel" id="telefono" placeholder="Ej. +57 300 123 4567" required>
+                </div>
+                <div class="form-group">
+                    <label for="ciudad">Ciudad</label>
+                    <input type="text" id="ciudad" placeholder="Ej. Bogotá" required>
+                </div>
+                <div class="form-group">
+                    <label for="mensaje">Mensaje o Consulta sobre tu Moto</label>
+                    <textarea id="mensaje" rows="4" placeholder="¿Tienes alguna pregunta sobre los productos Motrix para moto?"></textarea>
+                </div>
+                <button type="submit" class="btn-submit">Enviar Solicitud</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2026 Motrix S.A.S. - Todos los derechos reservados. Proyecto Productivo SENA / Fondo Emprender.</p>
+    </footer>
+
+</body>
+</html>
